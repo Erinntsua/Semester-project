@@ -17,6 +17,11 @@
   header {
     background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
     padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
   }
   
   header nav {
