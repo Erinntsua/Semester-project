@@ -14,28 +14,29 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
     position: fixed;
     top: 0;
-    width: 100%;
+    left: 0;
+    right: 0;
     z-index: 100;
-}
-
-header a {
+  }
+  
+  header a {
     color: #fff;
     text-decoration: none;
     margin: 0 1rem;
-}
-
-header a:hover {
+  }
+  
+  header a:hover {
     text-decoration: underline;
-}
-
-.logo {
-    font-size: 2rem;
+  }
+  
+  .logo {
+    font-size: 2.5rem;
     font-weight: bold;
     color: #fdd700;
-}
+  }
 
 /* Booking Section */
 .booking-container {
