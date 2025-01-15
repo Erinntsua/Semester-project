@@ -96,3 +96,7 @@ button {
 button:hover {
     background-color: #1c6c1c;
 }
+.region-card.selected {
+    border: 2px solid #fdd700;
+    box-shadow: 0 4px 8px rgba(255, 215, 0, 0.5);
+}
