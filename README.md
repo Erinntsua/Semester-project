@@ -30,3 +30,6 @@ DineKɔ aims to provide a seamless and enriching experience, offering visitors a
 
  How to Run the Application
 Follow these steps to run the application:
+
+
+https://github.com/Erinntsua/Semester-project.git
