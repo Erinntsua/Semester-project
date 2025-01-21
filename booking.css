@@ -1,0 +1,102 @@
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    background: url('https://i.ibb.co/Qvqn3S4/IMG-20250107-WA0011.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+  }
+  
+  header a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1rem;
+  }
+  
+  header a:hover {
+    text-decoration: underline;
+  }
+  
+  .logo {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fdd700;
+  }
+
+/* Booking Section */
+.booking-container {
+    margin-top: 100px; /* Space for fixed header */
+    text-align: center;
+    padding: 2rem;
+}
+
+.regions-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.region-card {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: left;
+}
+
+.region-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.region-card h2 {
+    font-size: 1.5rem;
+    color: #fdd700;
+    margin-bottom: 0.5rem;
+}
+
+.region-card p {
+    margin-bottom: 1rem;
+}
+
+.region-card ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 1rem;
+}
+
+button {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    border: none;
+    background-color: #228B22;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1c6c1c;
+}
+.region-card.selected {
+    border: 2px solid #fdd700;
+    box-shadow: 0 4px 8px rgba(255, 215, 0, 0.5);
+}

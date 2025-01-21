@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DineKɔ | Explore Ghana</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <header>
+        <div class="logo">DineKɔ</div>
+        <nav>
+            <a href="booking.html">Tours and Foods</a>
+            <a href="#">Contact Us</a>
+            <a href="login.html">Login/Signup</a> <!-- Link to Login Page -->
+            <a href="cart.html" class="cart" id="cart-link">Cart (0)</a>
+            <button id="logout-btn" style="display: none;">Log Out</button> <!-- Log Out Button -->
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Akwaaba! Welcome to DineKɔ</h1>
+        <p>Your one-stop destination for exploring the beauty of Ghana and embracing its vibrant culture.</p>
+        <button onclick="window.location.href='booking.html';">Browse our shop</button>
+    </div>
+
+    <div class="section">
+        <h2>What We Believe</h2>
+        <p>At DineKɔ, we believe in celebrating the rich culture, history, and beauty of Ghana.</p>
+    </div>
+
+    <footer>
+        &copy; 2025 DineKɔ. All rights reserved.
+    </footer>
+
+    <script>
+        // Update cart count from local storage
+        function updateCartCount() {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            document.getElementById('cart-link').innerText = `Cart (${cartItems.length})`;
+        }
+
+        // Display Log Out button if user is logged in
+        document.addEventListener('DOMContentLoaded', function () {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            const logoutBtn = document.getElementById('logout-btn');
+
+            // If a user is logged in, show the log-out button
+            if (currentUser) {
+                logoutBtn.style.display = 'inline-block'; // Show the button
+            }
+
+            // Log out functionality
+            logoutBtn.addEventListener('click', function () {
+                localStorage.removeItem('currentUser');
+                alert('You have been logged out.');
+                window.location.href = 'login.html'; // Redirect to login page
+            });
+        });
+
+        // Call the updateCartCount function on page load
+        window.onload = updateCartCount;
+    </script>
+</body>
+</html>

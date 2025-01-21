@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DineKɔ | Payment</title>
+    <link rel="stylesheet" href="payment.css">
+</head>
+<body>
+    <header>
+        <div class="logo">DineKɔ</div>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="cart.html">Cart</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+
+    <div class="payment-container">
+        <h2>Proceed with Payment</h2>
+        <form id="payment-form">
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" placeholder="Enter Card Number" required>
+            <label for="expiry-date">Expiry Date:</label>
+            <input type="text" id="expiry-date" placeholder="MM/YY" required>
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" placeholder="CVV" required>
+            <button type="submit">Pay Now</button>
+        </form>
+
+        <div id="payment-status"></div> <!-- Feedback for payment status -->
+
+        <footer>
+            &copy; 2025 DineKɔ. All rights reserved.
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('payment-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Simulating payment process
+            const cardNumber = document.getElementById('card-number').value;
+            const expiryDate = document.getElementById('expiry-date').value;
+            const cvv = document.getElementById('cvv').value;
+
+            if (!cardNumber || !expiryDate || !cvv) {
+                alert("Please fill out all fields.");
+                return;
+            }
+
+            // Simulate a successful payment (you can add your own conditions here)
+            const paymentStatus = document.getElementById('payment-status');
+            const paymentSuccessful = Math.random() > 0.5; // Random success or failure
+
+            if (paymentSuccessful) {
+                paymentStatus.innerHTML = `<p class="green">Payment successful! Thank you for your purchase.</p>`;
+            } else {
+                paymentStatus.innerHTML = `<p class="red">Payment failed. Please try again.</p>`;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DineKɔ | Cart</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>DineKɔ</h1>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Your Cart</h2>
+        <div id="cart-items-container">
+            <!-- Cart items will be dynamically inserted here -->
+        </div>
+        <p id="total-amount"></p> <!-- Display total amount -->
+        <button onclick="window.location.href='booking.html';">Continue Shopping</button>
+        <button onclick="clearCart();">Clear Cart</button>
+        <button onclick="proceedToPayment();">Proceed to Payment</button>
+    </main>
+    <footer>
+        <p>&copy; 2025 DineKɔ. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Display cart items from local storage
+        function displayCartItems() {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const container = document.getElementById('cart-items-container');
+            container.innerHTML = ""; // Clear existing items
+            let totalAmount = 0; // Initialize total amount to 0
+
+            if (cartItems.length === 0) {
+                container.innerHTML = "<p>Your cart is empty.</p>";
+            } else {
+                cartItems.forEach((item, index) => {
+                    const itemElement = document.createElement('div');
+                    itemElement.innerHTML = `
+                        <div class="cart-item">
+                            <img src="${item.imageUrl}" alt="${item.title}" width="100">
+                            <div class="item-details">
+                                <h3>${item.title}</h3>
+                                <p><strong>Price:</strong> $${item.price}</p>
+                                <p><strong>Quantity:</strong> ${item.quantity}</p>
+                                <button onclick="removeFromCart(${index})">Remove</button>
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(itemElement);
+                    totalAmount += item.price * item.quantity; // Add item total to the total amount
+                });
+                document.getElementById('total-amount').innerText = `Total: $${totalAmount.toFixed(2)}`;
+            }
+        }
+
+        // Function to remove item from cart
+        function removeFromCart(index) {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            cartItems.splice(index, 1); // Remove item at the specified index
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            displayCartItems(); // Re-render the cart items
+        }
+
+        // Function to clear all items from the cart
+        function clearCart() {
+            localStorage.removeItem('cartItems');
+            displayCartItems(); // Re-render the cart items
+        }
+
+        // Function to proceed to payment
+        function proceedToPayment() {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            if (cartItems.length === 0) {
+                alert("Your cart is empty. Please add items to the cart before proceeding.");
+                return;
+            }
+            localStorage.setItem('cartItems', JSON.stringify(cartItems)); // Ensure cart items are available for the payment page
+            window.location.href = 'payment.html'; // Redirect to the payment page
+        }
+
+        // Call the displayCartItems function on page load
+        window.onload = displayCartItems;
+    </script>
+</body>
+</html>

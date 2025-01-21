@@ -1,0 +1,116 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header nav {
+    margin-top: 10px;
+}
+
+header nav a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+/* Logout Container */
+.logout-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+
+.logout-container h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.logout-container p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.logout-container .buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.logout-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.logout-container button:hover {
+    background-color: #0056b3;
+}
+
+.logout-container button:focus {
+    outline: none;
+}
+
+/* Congratulatory Message */
+.congratulations-container {
+    text-align: center;
+    display: none;
+    padding: 50px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 8px;
+}
+
+.congratulations-container h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.congratulations-container p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.congratulations-container .home-btn {
+    padding: 10px 30px;
+    background-color: #28a745;
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.congratulations-container .home-btn:hover {
+    background-color: #218838;
+}
