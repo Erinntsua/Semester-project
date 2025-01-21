@@ -1,0 +1,91 @@
+/* General Body Styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    background: url('https://i.ibb.co/Qvqn3S4/IMG-20250107-WA0011.jpg') no-repeat center center fixed;
+    background-size: cover;
+    line-height: 1.6;
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1rem;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fdd700;
+}
+
+/* Dashboard Container Styling */
+.dashboard-container {
+    margin-top: 6rem; /* Space below the fixed header */
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: rgba(0, 0, 0, 0.85); /* Semi-transparent black */
+    border-radius: 10px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+.dashboard-container h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #fdd700;
+}
+
+.dashboard-container p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+/* Button Styling */
+.dashboard-container button {
+    background-color: #228B22;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.dashboard-container button:hover {
+    background-color: #1c6c1c;
+    transform: scale(1.05);
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+    font-size: 0.9rem;
+    color: #fff;
+    margin-top: 2rem;
+}
