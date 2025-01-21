@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DineKɔ - Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">DineKɔ</div>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="cart.html">Cart</a>
+            <a href="profile.html">Profile</a>
+            <a href="logout.html" id="logout">Logout</a>
+        </nav>
+    </header>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-container">
+        <h2>Welcome to your Dashboard!</h2>
+        <p>Your recent activities and bookings will appear here.</p>
+        <!-- You can add more dynamic content based on user data -->
+        <div class="dashboard-section">
+            <h3>Recent Bookings</h3>
+            <div id="booking-list"></div>
+        </div>
+        <div class="dashboard-section">
+            <h3>Recent Activities</h3>
+            <div id="activity-list"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
