@@ -13,34 +13,34 @@
             <a href="booking.html">Tours and Foods</a>
             <a href="#">Contact Us</a>
             <a href="login.html">Login/Signup</a>
-            <a href="cart.html" class="cart">Cart</a>
+            <a href="cart.html" class="cart" id="cart-link">Cart (0)</a>
         </nav>
     </header>
 
     <div class="hero">
         <h1>Akwaaba! Welcome to DineKɔ</h1>
-        <p>Your one-stop destination for exploring the beauty of Ghana and embracing its vibrant culture. Discover breathtaking tours, savor authentic local cuisines, and shop unique African goods crafted with love.</p>
+        <p>Your one-stop destination for exploring the beauty of Ghana and embracing its vibrant culture.</p>
         <button onclick="window.location.href='booking.html';">Browse our shop</button>
     </div>
 
     <div class="section">
         <h2>What We Believe</h2>
-        <p>At DineKɔ, we believe in celebrating the rich culture, history, and beauty of Ghana. Our mission is to create unforgettable experiences that connect people to the heart of Africa—its vibrant landscapes, authentic cuisines, and timeless traditions.</p>
-        <ul>
-            <li>Empowering Local Communities: By promoting locally crafted goods and supporting small businesses.</li>
-            <li>Showcasing Ghana’s Diversity: Through curated tours that highlight each region’s unique culture and heritage.</li>
-            <li>Inspiring Connections: Encouraging meaningful interactions between visitors and locals.</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>Who We Are</h2>
-        <p>DineKɔ is more than just a travel and shopping platform. We are a community of explorers, creators, and storytellers passionate about sharing Ghana’s treasures with the world. Whether you’re booking a tour, tasting local dishes, or shopping for authentic African goods, we aim to deliver a seamless, enriching experience tailored to your interests.</p>
+        <p>At DineKɔ, we believe in celebrating the rich culture, history, and beauty of Ghana.</p>
     </div>
 
     <footer>
         &copy; 2025 DineKɔ. All rights reserved.
     </footer>
-    <script src="script.js"></script>
+
+    <script>
+        // Update cart count from local storage
+        function updateCartCount() {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            document.getElementById('cart-link').innerText = `Cart (${cartItems.length})`;
+        }
+
+        // Call the updateCartCount function on page load
+        window.onload = updateCartCount;
+    </script>
 </body>
 </html>
