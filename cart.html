@@ -43,21 +43,34 @@
             } else {
                 cartItems.forEach((item, index) => {
                     const itemElement = document.createElement('div');
+                    itemElement.classList.add('cart-item'); // Add class for styling
                     itemElement.innerHTML = `
-                        <div class="cart-item">
-                            <img src="${item.imageUrl}" alt="${item.title}" width="100">
-                            <div class="item-details">
-                                <h3>${item.title}</h3>
-                                <p><strong>Price:</strong> $${item.price}</p>
-                                <p><strong>Quantity:</strong> ${item.quantity}</p>
-                                <button onclick="removeFromCart(${index})">Remove</button>
-                            </div>
+                        <img src="${item.imageUrl}" alt="${item.imageAlt}" width="100" />
+                        <div class="item-details">
+                            <h3>${item.title}</h3>
+                            <p><strong>Price:</strong> $${item.price}</p>
+                            <p><strong>Quantity:</strong> 
+                                <button onclick="updateQuantity(${index}, -1)">-</button>
+                                <span id="quantity-${index}">${item.quantity}</span>
+                                <button onclick="updateQuantity(${index}, 1)">+</button>
+                            </p>
+                            <button onclick="removeFromCart(${index})">Remove</button>
                         </div>
                     `;
                     container.appendChild(itemElement);
                     totalAmount += item.price * item.quantity; // Add item total to the total amount
                 });
                 document.getElementById('total-amount').innerText = `Total: $${totalAmount.toFixed(2)}`;
+            }
+        }
+
+        // Function to update item quantity
+        function updateQuantity(index, change) {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            if (cartItems[index]) {
+                cartItems[index].quantity = Math.max(1, cartItems[index].quantity + change); // Ensure quantity is at least 1
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                displayCartItems(); // Re-render the cart items
             }
         }
 
@@ -88,6 +101,41 @@
 
         // Call the displayCartItems function on page load
         window.onload = displayCartItems;
+
+        // Cart Add Items - from the region selection buttons
+        document.querySelectorAll('.region-card button').forEach(button => {
+            button.addEventListener('click', function () {
+                const card = this.closest('.region-card');
+                const title = card.querySelector('h2').textContent;
+                const price = parseFloat(card.querySelector('p strong').textContent.replace(/[^0-9.]/g, ''));
+                const imageUrl = card.querySelector('img') ? card.querySelector('img').src : ''; // Check if an image exists
+                const imageAlt = card.querySelector('img') ? card.querySelector('img').alt : title; // Default alt text
+
+                // Add or update item in cart
+                const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+                const existingItem = cartItems.find(item => item.title === title);
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cartItems.push({ title, price, quantity: 1, imageUrl, imageAlt });
+                }
+
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                alert(`Added ${title} to cart.`);
+                updateCartCount(); // Update the cart count in the navigation
+            });
+        });
+
+        // Cart Count in Navigation
+        function updateCartCount() {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+            const cartLink = document.getElementById('cart-link');
+            if (cartLink) {
+                cartLink.textContent = `Cart (${cartCount})`;
+            }
+        }
+        updateCartCount();
     </script>
 </body>
 </html>

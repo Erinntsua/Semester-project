@@ -94,19 +94,19 @@ document.addEventListener('DOMContentLoaded', function () {
     const heroHeading = document.querySelector('.hero h1');
     if (heroHeading) {
         const hour = new Date().getHours();
+        let greeting = "Welcome to DineKɔ";
         if (hour < 12) {
-            heroHeading.textContent = `Good Morning! Welcome to DineKɔ`;
+            greeting = `Good Morning! ${greeting}`;
         } else if (hour < 18) {
-            heroHeading.textContent = `Good Afternoon! Welcome to DineKɔ`;
+            greeting = `Good Afternoon! ${greeting}`;
         } else {
-            heroHeading.textContent = `Good Evening! Welcome to DineKɔ`;
+            greeting = `Good Evening! ${greeting}`;
         }
 
-        // Add user name greeting if logged in
         if (currentUser) {
-            const greeting = `Good Morning, ${currentUser.name}! Welcome to DineKɔ`;
-            heroHeading.textContent = greeting;
+            greeting = `Good ${hour < 12 ? 'Morning' : hour < 18 ? 'Afternoon' : 'Evening'}, ${currentUser.name}! ${greeting}`;
         }
+        heroHeading.textContent = greeting;
     }
 
     // Cart Page - Update Cart and Total Amount
@@ -114,30 +114,28 @@ document.addEventListener('DOMContentLoaded', function () {
         const cartContainer = document.getElementById('cart-items-container');
         const totalAmountElement = document.getElementById('total-amount');
 
-        // Display cart items
+        // Function to display cart items
         function displayCartItems() {
-            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-            cartContainer.innerHTML = ""; // Clear existing items
-            let totalAmount = 0; // Initialize total amount to 0
+            cartContainer.innerHTML = ''; // Clear existing items
+            let totalAmount = 0; // Initialize total amount
 
             if (cartItems.length === 0) {
                 cartContainer.innerHTML = "<p>Your cart is empty.</p>";
             } else {
                 cartItems.forEach((item, index) => {
                     const itemElement = document.createElement('div');
+                    itemElement.classList.add('cart-item');
                     itemElement.innerHTML = `
-                        <div class="cart-item">
-                            <img src="${item.imageUrl}" alt="${item.imageAlt}" width="100" />
-                            <div class="item-details">
-                                <h3>${item.title}</h3>
-                                <p><strong>Price:</strong> $${item.price}</p>
-                                <p><strong>Quantity:</strong> ${item.quantity}</p>
-                                <button onclick="removeFromCart(${index})">Remove</button>
-                            </div>
+                        <img src="${item.imageUrl}" alt="${item.imageAlt}" width="100" />
+                        <div class="item-details">
+                            <h3>${item.title}</h3>
+                            <p><strong>Price:</strong> $${item.price}</p>
+                            <p><strong>Quantity:</strong> ${item.quantity}</p>
+                            <button onclick="removeFromCart(${index})">Remove</button>
                         </div>
                     `;
                     cartContainer.appendChild(itemElement);
-                    totalAmount += item.price * item.quantity; // Add item total to the total amount
+                    totalAmount += item.price * item.quantity;
                 });
                 totalAmountElement.innerText = `Total: $${totalAmount.toFixed(2)}`;
             }
@@ -145,27 +143,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Function to remove item from cart
         function removeFromCart(index) {
-            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-            cartItems.splice(index, 1); // Remove item at the specified index
+            cartItems.splice(index, 1); // Remove item from the array
             localStorage.setItem('cartItems', JSON.stringify(cartItems));
-            displayCartItems(); // Re-render the cart items
+            displayCartItems(); // Re-render the cart
         }
 
         // Function to proceed to payment
         function proceedToPayment() {
-            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
             if (cartItems.length === 0) {
                 alert("Your cart is empty. Please add items to the cart before proceeding.");
                 return;
             }
-            localStorage.setItem('cartItems', JSON.stringify(cartItems)); // Ensure cart items are available for the payment page
-            window.location.href = 'payment.html'; // Redirect to the payment page
+            localStorage.setItem('cartItems', JSON.stringify(cartItems)); // Store cart items
+            window.location.href = 'payment.html'; // Proceed to payment page
         }
 
         // Initialize cart display
         displayCartItems();
 
-        // Handle cart proceed to payment button click
+        // Handle proceed to payment button
         const proceedToPaymentBtn = document.querySelector('button[onclick="window.location.href=\'payment.html\'"]');
         if (proceedToPaymentBtn) {
             proceedToPaymentBtn.addEventListener('click', proceedToPayment);
