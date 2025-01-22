@@ -137,7 +137,11 @@ document.addEventListener('DOMContentLoaded', function () {
                         <div class="item-details">
                             <h3>${item.title}</h3>
                             <p><strong>Price:</strong> $${item.price}</p>
-                            <p><strong>Quantity:</strong> ${item.quantity}</p>
+                            <p><strong>Quantity:</strong> 
+                                <button onclick="updateQuantity(${index}, -1)">-</button>
+                                <span id="quantity-${index}">${item.quantity}</span>
+                                <button onclick="updateQuantity(${index}, 1)">+</button>
+                            </p>
                             <button onclick="removeFromCart(${index})">Remove</button>
                         </div>
                     `;
@@ -145,6 +149,16 @@ document.addEventListener('DOMContentLoaded', function () {
                     totalAmount += item.price * item.quantity;
                 });
                 totalAmountElement.innerText = `Total: $${totalAmount.toFixed(2)}`;
+            }
+        }
+
+        // Function to update the quantity of an item in the cart
+        function updateQuantity(index, change) {
+            if (cartItems[index]) {
+                cartItems[index].quantity += change;
+                if (cartItems[index].quantity <= 0) cartItems[index].quantity = 1; // Prevent quantity from being less than 1
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                displayCartItems(); // Re-render the cart after updating quantity
             }
         }
 
