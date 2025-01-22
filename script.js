@@ -61,6 +61,16 @@ document.addEventListener('DOMContentLoaded', function () {
             bookings.push({ region: regionName, quantity });
             localStorage.setItem('bookings', JSON.stringify(bookings));
 
+            // Add to cart if not already in the cart
+            const existingCartItem = cartItems.find(item => item.title === regionName);
+            if (existingCartItem) {
+                existingCartItem.quantity += quantity;
+            } else {
+                const price = parseFloat(selectedRegion.querySelector('p').textContent.replace(/[^0-9.]/g, ''));
+                cartItems.push({ title: regionName, price, quantity });
+            }
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
             // Redirect to cart
             alert('Booking successful!');
             window.location.href = 'cart.html'; // Redirect to cart after booking
