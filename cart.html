@@ -45,7 +45,6 @@
                     const itemElement = document.createElement('div');
                     itemElement.classList.add('cart-item'); // Add class for styling
                     itemElement.innerHTML = `
-                        <img src="${item.imageUrl}" alt="${item.imageAlt}" width="100" />
                         <div class="item-details">
                             <h3>${item.title}</h3>
                             <p><strong>Price:</strong> $${item.price}</p>
@@ -101,30 +100,6 @@
 
         // Call the displayCartItems function on page load
         window.onload = displayCartItems;
-
-        // Cart Add Items - from the region selection buttons
-        document.querySelectorAll('.region-card button').forEach(button => {
-            button.addEventListener('click', function () {
-                const card = this.closest('.region-card');
-                const title = card.querySelector('h2').textContent;
-                const price = parseFloat(card.querySelector('p strong').textContent.replace(/[^0-9.]/g, ''));
-                const imageUrl = card.querySelector('img') ? card.querySelector('img').src : ''; // Check if an image exists
-                const imageAlt = card.querySelector('img') ? card.querySelector('img').alt : title; // Default alt text
-
-                // Add or update item in cart
-                const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-                const existingItem = cartItems.find(item => item.title === title);
-                if (existingItem) {
-                    existingItem.quantity += 1;
-                } else {
-                    cartItems.push({ title, price, quantity: 1, imageUrl, imageAlt });
-                }
-
-                localStorage.setItem('cartItems', JSON.stringify(cartItems));
-                alert(`Added ${title} to cart.`);
-                updateCartCount(); // Update the cart count in the navigation
-            });
-        });
 
         // Cart Count in Navigation
         function updateCartCount() {

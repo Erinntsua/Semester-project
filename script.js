@@ -73,15 +73,13 @@ document.addEventListener('DOMContentLoaded', function () {
             const card = this.closest('.region-card');
             const title = card.querySelector('h2').textContent;
             const price = parseFloat(card.querySelector('p').textContent.replace(/[^0-9.]/g, ''));
-            const imageUrl = card.querySelector('img') ? card.querySelector('img').src : ''; // Check if an image exists
-            const imageAlt = card.querySelector('img') ? card.querySelector('img').alt : title; // Default alt text
 
             // Add or update item in cart
             const existingItem = cartItems.find(item => item.title === title);
             if (existingItem) {
                 existingItem.quantity += 1;
             } else {
-                cartItems.push({ title, price, quantity: 1, imageUrl, imageAlt });
+                cartItems.push({ title, price, quantity: 1 });
             }
 
             localStorage.setItem('cartItems', JSON.stringify(cartItems));
@@ -126,7 +124,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     const itemElement = document.createElement('div');
                     itemElement.classList.add('cart-item');
                     itemElement.innerHTML = `
-                        <img src="${item.imageUrl}" alt="${item.imageAlt}" width="100" />
                         <div class="item-details">
                             <h3>${item.title}</h3>
                             <p><strong>Price:</strong> $${item.price}</p>
