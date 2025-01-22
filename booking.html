@@ -12,7 +12,7 @@
         <div class="logo">DineKɔ</div>
         <nav>
             <a href="home.html">Home</a>
-            <a href="cart.html">Cart</a>
+            <a href="cart.html" id="cart-link">Cart (0)</a>
         </nav>
     </header>
 
@@ -20,7 +20,6 @@
     <div class="booking-container">
         <h1>Explore and Book Tours</h1>
         <div class="regions-container">
-            <!-- Region Cards -->
             <!-- Ashanti Region -->
             <div class="region-card">
                 <h2>Ashanti Region</h2>
@@ -60,7 +59,6 @@
                 <button onclick="addToCart('Greater Accra Region Tour', 120, 'Greater Accra Region')">Book Accra Tour</button>
             </div>
 
-            <!-- Repeat for All Remaining Regions -->
             <!-- Northern Region -->
             <div class="region-card">
                 <h2>Northern Region</h2>
@@ -68,183 +66,192 @@
                 <p>Discover rich traditions in the Northern Region, including dances, festivals, and hearty dishes.</p>
                 <h3>Famous Food:</h3>
                 <ul>
-                    <li>Tuo Zaafi with Ayoyo Soup - $6.00 <br> <img src="images/tuozaafi.jpg" alt="Tuo Zaafi"></
-                    </ul>
-                    <p><strong>Tour Price:</strong> $130 per person</p>
-                    <button onclick="addToCart('Northern Region Tour', 130, 'Northern Region')">Book Northern Tour</button>
-                </div>
-    
-                <!-- Central Region -->
-                <div class="region-card">
-                    <h2>Central Region</h2>
-                    <img src="images/central.jpg" alt="Central Region">
-                    <p>Visit historical landmarks and enjoy delicious Fante-kenkey.</p>
-                    <h3>Famous Food:</h3>
-                    <ul>
-                        <li>Fante Kenkey with Fried Fish - $6.00 <br> <img src="images/fante-kenkey.jpg" alt="Fante-Kenkey"></li>
-                    </ul>
-                    <p><strong>Tour Price:</strong> $130 per person</p>
-                    <button onclick="addToCart('Central Region Tour', 130, 'Central Region')">Book Central Tour</button>
-                </div>
-    
-                <!-- Western Region -->
-                <div class="region-card">
-                    <h2>Western Region</h2>
-                    <img src="images/western.jpg" alt="Western Region">
-                    <p>Relax on pristine beaches and savor fresh seafood.</p>
-                    <h3>Famous Food:</h3>
-                    <ul>
-                        <li>Aky3k3 with Fish - $6.00 <br> <img src="images/aky3k3.jpg" alt="Aky3k3"></li>
-                    </ul>
-                    <p><strong>Tour Price:</strong> $130 per person</p>
-                    <button onclick="addToCart('Western Region Tour', 130, 'Western Region')">Book Western Tour</button>
-                </div>
-    
-                <!-- Eastern Region -->
-                <div class="region-card">
-                    <h2>Eastern Region</h2>
-                    <img src="images/eastern.jpg" alt="Eastern Region">
-                    <p>Explore lush landscapes and traditional dishes.</p>
-                    <h3>Famous Food:</h3>
-                    <ul>
-                        <li>Ampesie with Palava Sauce - $10.00 <br> <img src="images/ampesie.jpg" alt="Ampesie"></li>
-                    </ul>
-                    <p><strong>Tour Price:</strong> $130 per person</p>
-                    <button onclick="addToCart('Eastern Region Tour', 130, 'Eastern Region')">Book Eastern Tour</button>
-                </div>
-    
-                <!-- Upper-East Region -->
-                <div class="region-card">
-                    <h2>Upper-East Region</h2>
-                    <img src="images/upper-east.jpeg" alt="Upper-East Region">
-                    <p>Experience vibrant festivals and unique flavors.</p>
-                    <h3>Famous Food:</h3>
-                    <ul>
-                        <li>Tubaani - $6.00 <br> <img src="images/tubaani.jpg" alt="Tubaani"></li>
-                    </ul>
-                    <p><strong>Tour Price:</strong> $130 per person</p>
-                    <button onclick="addToCart('Upper-East Region Tour', 130, 'Upper-East Region')">Book Upper-East Tour</button>
-                </div>
-    
-                <!-- Upper-West Region -->
-                <div class="region-card">
-                    <h2>Upper-West Region</h2>
-                    <img src="images/upper-west.jpeg" alt="Upper-West Region">
-                    <p>Discover historic sites and traditional meals.</p>
-                    <h3>Famous Food:</h3>
-                    <ul>
-                        <li>Hausa Koko and Koose - $3.00 <br> <img src="images/koko.jpg" alt="Koko"></li>
-                    </ul>
-                    <p><strong>Tour Price:</strong> $130 per person</p>
-                    <button onclick="addToCart('Upper-West Region Tour', 130, 'Upper-West Region')">Book Upper-West Tour</button>
-                </div>
-    
-                <!-- Oti Region -->
-                <div class="region-card">
-                    <h2>Oti Region</h2>
-                    <img src="images/oti.jpg" alt="Oti Region">
-                    <p>Explore natural wonders and local culinary delights.</p>
-                    <h3>Famous Food:</h3>
-                    <ul>
-                        <li>Yam Porridge - $10.00 <br> <img src="images/yam-porridge.jpg" alt="Yam Porridge"></li>
-                    </ul>
-                    <p><strong>Tour Price:</strong> $130 per person</p>
-                    <button onclick="addToCart('Oti Region Tour', 130, 'Oti Region')">Book Oti Tour</button>
-                </div>
-    
-                <!-- Ahafo Region -->
-                <div class="region-card">
-                    <h2>Ahafo Region</h2>
-                    <img src="images/ahafo.jpeg" alt="Ahafo Region">
-                    <p>Enjoy serene landscapes and indigenous dishes.</p>
-                    <h3>Famous Food:</h3>
-                    <ul>
-                        <li>Fufu and Abunuabunu - $13.00 <br> <img src="images/abunuabunu.jpg" alt="Abunuabunu"></li>
-                    </ul>
-                    <p><strong>Tour Price:</strong> $130 per person</p>
-                    <button onclick="addToCart('Ahafo Region Tour', 130, 'Ahafo Region')">Book Ahafo Tour</button>
-                </div>
-    
-                <!-- Bono Region -->
-                <div class="region-card">
-                    <h2>Bono Region</h2>
-                    <img src="images/bono.jpeg" alt="Bono Region">
-                    <p>Learn about local crafts and savor traditional meals.</p>
-                    <h3>Famous Food:</h3>
-                    <ul>
-                        <li>Ɛto - $15.00 <br> <img src="images/eto.jpg" alt="Ɛto"></li>
-                    </ul>
-                    <p><strong>Tour Price:</strong> $130 per person</p>
-                    <button onclick="addToCart('Bono Region Tour', 130, 'Bono Region')">Book Bono Tour</button>
-                </div>
-    
-                <!-- Bono-East Region -->
-                <div class="region-card">
-                    <h2>Bono-East Region</h2>
-                    <img src="images/bono-east.jpeg" alt="Bono-East Region">
-                    <p>Experience scenic views and cultural heritage.</p>
-                    <h3>Famous Food:</h3>
-                    <ul>
-                        <li>Omo-Tuo and Groundnut Soup - $13.00 <br> <img src="images/omo-tuo.jpg" alt="Omo-Tuo"></li>
-                    </ul>
-                    <p><strong>Tour Price:</strong> $130 per person</p>
-                    <button onclick="addToCart('Bono-East Region Tour', 130, 'Bono-East Region')">Book Bono-East Tour</button>
-                </div>
-    
-                <!-- North-East Region -->
-                <div class="region-card">
-                    <h2>North-East Region</h2>
-                    <img src="images/north-east.jpg" alt="North-East Region">
-                    <p>Explore local attractions and try unique meals.</p>
-                    <h3>Famous Food:</h3>
-                    <ul>
-                        <li>Waakye - $8.00 <br> <img src="images/waakye.jpg" alt="Waakye"></li>
-                    </ul>
-                    <p><strong>Tour Price:</strong> $130 per person</p>
-                    <button onclick="addToCart('North-East Region Tour', 130, 'North-East Region')">Book North-East Tour</button>
-                </div>
+                    <li>Tuo Zaafi with Ayoyo Soup - $6.00 <br> <img src="images/tuozaafi.jpg" alt="Tuo Zaafi"></li>
+                </ul>
+                <p><strong>Tour Price:</strong> $130 per person</p>
+                <button onclick="addToCart('Northern Region Tour', 130, 'Northern Region')">Book Northern Tour</button>
+            </div>
+
+            <!-- Central Region -->
+            <div class="region-card">
+                <h2>Central Region</h2>
+                <img src="images/central.jpg" alt="Central Region">
+                <p>Visit historical landmarks and enjoy delicious Fante-kenkey.</p>
+                <h3>Famous Food:</h3>
+                <ul>
+                    <li>Fante Kenkey with Fried Fish - $6.00 <br> <img src="images/fante-kenkey.jpg" alt="Fante-Kenkey"></li>
+                </ul>
+                <p><strong>Tour Price:</strong> $130 per person</p>
+                <button onclick="addToCart('Central Region Tour', 130, 'Central Region')">Book Central Tour</button>
+            </div>
+
+            <!-- Western Region -->
+            <div class="region-card">
+                <h2>Western Region</h2>
+                <img src="images/western.jpg" alt="Western Region">
+                <p>Relax on pristine beaches and savor fresh seafood.</p>
+                <h3>Famous Food:</h3>
+                <ul>
+                    <li>Aky3k3 with Fish - $6.00 <br> <img src="images/aky3k3.jpg" alt="Aky3k3"></li>
+                </ul>
+                <p><strong>Tour Price:</strong> $130 per person</p>
+                <button onclick="addToCart('Western Region Tour', 130, 'Western Region')">Book Western Tour</button>
+            </div>
+
+            <!-- Eastern Region -->
+            <div class="region-card">
+                <h2>Eastern Region</h2>
+                <img src="images/eastern.jpg" alt="Eastern Region">
+                <p>Explore lush landscapes and traditional dishes.</p>
+                <h3>Famous Food:</h3>
+                <ul>
+                    <li>Ampesie with Palava Sauce - $10.00 <br> <img src="images/ampesie.jpg" alt="Ampesie"></li>
+                </ul>
+                <p><strong>Tour Price:</strong> $130 per person</p>
+                <button onclick="addToCart('Eastern Region Tour', 130, 'Eastern Region')">Book Eastern Tour</button>
+            </div>
+
+            <!-- Upper-East Region -->
+            <div class="region-card">
+                <h2>Upper-East Region</h2>
+                <img src="images/upper-east.jpeg" alt="Upper-East Region">
+                <p>Experience vibrant festivals and unique flavors.</p>
+                <h3>Famous Food:</h3>
+                <ul>
+                    <li>Tubaani - $6.00 <br> <img src="images/tubaani.jpg" alt="Tubaani"></li>
+                </ul>
+                <p><strong>Tour Price:</strong> $130 per person</p>
+                <button onclick="addToCart('Upper-East Region Tour', 130, 'Upper-East Region')">Book Upper-East Tour</button>
+            </div>
+
+            <!-- Upper-West Region -->
+            <div class="region-card">
+                <h2>Upper-West Region</h2>
+                <img src="images/upper-west.jpeg" alt="Upper-West Region">
+                <p>Discover historic sites and traditional meals.</p>
+                <h3>Famous Food:</h3>
+                <ul>
+                    <li>Hausa Koko and Koose - $3.00 <br> <img src="images/koko.jpg" alt="Koko"></li>
+                </ul>
+                <p><strong>Tour Price:</strong> $130 per person</p>
+                <button onclick="addToCart('Upper-West Region Tour', 130, 'Upper-West Region')">Book Upper-West Tour</button>
+            </div>
+
+            <!-- Oti Region -->
+            <div class="region-card">
+                <h2>Oti Region</h2>
+                <img src="images/oti.jpg" alt="Oti Region">
+                <p>Explore natural wonders and local culinary delights.</p>
+                <h3>Famous Food:</h3>
+                <ul>
+                    <li>Yam Porridge - $10.00 <br> <img src="images/yam-porridge.jpg" alt="Yam Porridge"></li>
+                </ul>
+                <p><strong>Tour Price:</strong> $130 per person</p>
+                <button onclick="addToCart('Oti Region Tour', 130, 'Oti Region')">Book Oti Tour</button>
+            </div>
+
+            <!-- Ahafo Region -->
+            <div class="region-card">
+                <h2>Ahafo Region</h2>
+                <img src="images/ahafo.jpeg" alt="Ahafo Region">
+                <p>Enjoy serene landscapes and indigenous dishes.</p>
+                <h3>Famous Food:</h3>
+                <ul>
+                    <li>Fufu and Abunuabunu - $13.00 <br> <img src="images/abunuabunu.jpg" alt="Abunuabunu"></li>
+                </ul>
+                <p><strong>Tour Price:</strong> $130 per person</p>
+                <button onclick="addToCart('Ahafo Region Tour', 130, 'Ahafo Region')">Book Ahafo Tour</button>
+            </div>
+
+            <!-- Bono Region -->
+            <div class="region-card">
+                <h2>Bono Region</h2>
+                <img src="images/bono.jpeg" alt="Bono Region">
+                <p>Learn about local crafts and savor traditional meals.</p>
+                <h3>Famous Food:</h3>
+                <ul>
+                    <li>Ɛto - $15.00 <br> <img src="images/eto.jpg" alt="Ɛto"></li>
+                </ul>
+                <p><strong>Tour Price:</strong> $130 per person</p>
+                <button onclick="addToCart('Bono Region Tour', 130, 'Bono Region')">Book Bono Tour</button>
+            </div>
+
+            <!-- Bono-East Region -->
+            <div class="region-card">
+                <h2>Bono-East Region</h2>
+                <img src="images/bono-east.jpeg" alt="Bono-East Region">
+                <p>Experience scenic views and cultural heritage.</p>
+                <h3>Famous Food:</h3>
+                <ul>
+                    <li>Omo-Tuo and Groundnut Soup - $13.00 <br> <img src="images/omo-tuo.jpg" alt="Omo-Tuo"></li>
+                </ul>
+                <p><strong>Tour Price:</strong> $130 per person</p>
+                <button onclick="addToCart('Bono-East Region Tour', 130, 'Bono-East Region')">Book Bono-East Tour</button>
+            </div>
+
+            <!-- North-East Region -->
+            <div class="region-card">
+                <h2>North-East Region</h2>
+                <img src="images/north-east.jpg" alt="North-East Region">
+                <p>Explore local attractions and try unique meals.</p>
+                <h3>Famous Food:</h3>
+                <ul>
+                    <li>Waakye - $8.00 <br> <img src="images/waakye.jpg" alt="Waakye"></li>
+                </ul>
+                <p><strong>Tour Price:</strong> $130 per person</p>
+                <button onclick="addToCart('North-East Region Tour', 130, 'North-East Region')">Book North-East Tour</button>
             </div>
         </div>
+    </div>
+
+    <!-- Cart Notification -->
+    <div id="cart-notification" style="display: none;">
+        <p id="cart-message"></p>
+    </div>
+
+    <script>
+        // Cart Management Script
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Function to update the cart count in the header
+        function updateCartCount() {
+            const cartLink = document.getElementById('cart-link');
+            cartLink.textContent = `Cart (${cart.length})`;
+        }
+
+        // Function to add items to the cart
+        function addToCart(itemName, itemPrice, region) {
+            // Add the item details to the cart array
+            cart.push({ name: itemName, price: itemPrice, region: region });
+
+            // Save cart to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Update the cart count
+            updateCartCount();
+
+            // Notify the user
+            showCartMessage(region);
+        }
+
+        // Function to show cart message
+        function showCartMessage(region) {
+            const notification = document.getElementById('cart-notification');
+            const message = document.getElementById('cart-message');
     
-        <!-- Cart Notification -->
-        <div id="cart-notification" style="display: none;">
-            <p id="cart-message"></p>
-        </div>
+            message.innerHTML = `${region} Tour has been added to your cart!`;
+            notification.style.display = 'block';
     
-        <script>
-            // Function to add selected item to the cart and save in localStorage
-            function addToCart(title, price, region) {
-                const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-    
-                // Check if the item is already in the cart
-                const existingItem = cartItems.find(item => item.title === title);
-                if (existingItem) {
-                    existingItem.quantity += 1;
-                } else {
-                    cartItems.push({ title, price, quantity: 1 });
-                }
-    
-                // Save updated cart to localStorage
-                localStorage.setItem('cartItems', JSON.stringify(cartItems));
-    
-                // Display message indicating the item has been added to the cart
-                showCartMessage(region);
-            }
-    
-            // Function to show a message when an item is added to the cart
-            function showCartMessage(region) {
-                const notification = document.getElementById('cart-notification');
-                const message = document.getElementById('cart-message');
-    
-                message.innerHTML = `${region} Tour has been added to your cart!`;
-                notification.style.display = 'block';
-    
-                // Hide message after 3 seconds
-                setTimeout(() => {
-                    notification.style.display = 'none';
-                }, 3000);
-            }
-        </script>
-    </body>
-    </html>
-    
+            // Hide message after 3 seconds
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);
+        }
+
+        // Initialize cart count on page load
+        window.onload = function() {
+            updateCartCount();
+        }
+    </script>
+</body>
+</html>
