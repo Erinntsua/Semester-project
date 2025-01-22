@@ -32,7 +32,7 @@
     </footer>
 
     <script>
-        // Display cart items from local storage
+        // Function to display cart items from local storage
         function displayCartItems() {
             const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
             const container = document.getElementById('cart-items-container');
@@ -65,7 +65,33 @@
             updateCartCount();
         }
 
-        // Other utility functions remain unchanged...
+        // Function to update the quantity of an item in the cart
+        function updateQuantity(index, change) {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const item = cartItems[index];
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) item.quantity = 1; // Prevent quantity from being less than 1
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                displayCartItems(); // Re-render the cart after updating
+            }
+        }
+
+        // Function to remove an item from the cart
+        function removeFromCart(index) {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            cartItems.splice(index, 1); // Remove item from the array
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            displayCartItems(); // Re-render the cart after removal
+        }
+
+        // Function to clear the entire cart
+        function clearCart() {
+            localStorage.removeItem('cartItems');
+            displayCartItems(); // Re-render the cart after clearing
+        }
+
+        // Function to update the cart count in the navigation
         function updateCartCount() {
             const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
             const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
@@ -75,7 +101,18 @@
             }
         }
 
-        window.onload = displayCartItems;
+        // Function to proceed to the payment page
+        function proceedToPayment() {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            if (cartItems.length === 0) {
+                alert("Your cart is empty. Please add items to the cart before proceeding.");
+                return;
+            }
+            localStorage.setItem('cartItems', JSON.stringify(cartItems)); // Ensure the cart items are saved
+            window.location.href = 'payment.html'; // Proceed to payment page
+        }
+
+        window.onload = displayCartItems; // Display cart items when the page loads
     </script>
 </body>
 </html>
