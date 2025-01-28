@@ -1,0 +1,41 @@
+# Node modules
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables
+.env
+.env.*.local
+
+# Next.js build output
+.next/
+out/
+
+# Build directories
+dist/
+build/
+
+# Dependency directories
+bower_components/
+
+# Editor files
+*.swp
+*.swo
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.log
+*.lock
+*.pid
+*.seed
+
+# OS-specific files
+*.DS_Store
